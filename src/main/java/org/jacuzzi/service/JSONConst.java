@@ -22,7 +22,7 @@ public class JSONConst {
     public static final String GET_NOTIFICATION = "getNotification";
     public static final String SET_NOTIFICATION_STATUS = "setNotificationStatus";
     public static final String SET_STATUS_READ = "setStatusRead";
-    public static final String SET_STATUS_UNREAD = "setStatusUnread";
+    
 
     public static final String REQUEST_UNSUPPORTED = "requestUnsupported";
     public static final String INVALID_PARAMS = "invalidParameters";
