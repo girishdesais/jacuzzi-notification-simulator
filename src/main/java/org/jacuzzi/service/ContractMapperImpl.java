@@ -1,10 +1,9 @@
 package org.jacuzzi.service;
 
-import org.jacuzzi.common.dateutil.DateUtil;
-import org.jacuzzi.common.stringutil.StringUtil;
 import org.jacuzzi.core.Notification;
 import org.jacuzzi.core.NotificationImpl;
 import org.jacuzzi.model.NotificationData;
+import org.jacuzzi.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +29,7 @@ public class ContractMapperImpl implements ContractMapper {
 
         Map<String, Object> mapResponse;
         String request = (String) mapRequest.get(JSONConst.REQUEST);
-        if (StringUtil.isEmpty(request)) {
+        if (Utils.isEmpty(request)) {
             LOGGER.error("Invalid request");
             return formResponse(JSONConst.REQUEST_UNSUPPORTED, JSONConst.INVALID_PARAMS);
         }
@@ -80,7 +79,7 @@ public class ContractMapperImpl implements ContractMapper {
             mapMessage.put(JSONConst.MESSAGE, nd.getMessage());
             mapMessage.put(JSONConst.MOBILE_NUMBER, nd.getMobileNumber());
             mapMessage.put(JSONConst.MESSAGE_STATUS, nd.getMessageStatus());
-            mapMessage.put(JSONConst.MESSAGE_DATE, DateUtil.dateToString(nd.getReceivedOn(), "dd-MMM-yyyy hh:mm:ss"));
+            mapMessage.put(JSONConst.MESSAGE_DATE, Utils.dateToString(nd.getReceivedOn(), "dd-MMM-yyyy hh:mm:ss"));
             messageList.add(mapMessage);
         }
         Map<String, Object> mapResponse = formResponse(JSONConst.GET_NOTIFICATION, JSONConst.SUCCESS);

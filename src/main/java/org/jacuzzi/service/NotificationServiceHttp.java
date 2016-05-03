@@ -1,7 +1,7 @@
 package org.jacuzzi.service;
 
-import org.jacuzzi.common.stringutil.StringUtil;
 import org.jacuzzi.core.Notification;
+import org.jacuzzi.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class NotificationServiceHttp {
     public Map notificationAdd1_Money48(@RequestParam String text, @RequestParam String to) {
 
         Map<String, Object> mapParams = new HashMap<>();
-        mapParams.put(JSONConst.MESSAGE_ID, StringUtil.randomString(30));
+        mapParams.put(JSONConst.MESSAGE_ID, Utils.randomString(30));
         mapParams.put(JSONConst.MESSAGE, text);
         mapParams.put(JSONConst.MOBILE_NUMBER, to);
 
@@ -56,7 +56,7 @@ public class NotificationServiceHttp {
     public Map notificationAdd1(@RequestParam String message, @RequestParam String mobileNumber) {
 
         Map<String, Object> mapParams = new HashMap<>();
-        mapParams.put(JSONConst.MESSAGE_ID, StringUtil.randomString(30));
+        mapParams.put(JSONConst.MESSAGE_ID, Utils.randomString(30));
         mapParams.put(JSONConst.MESSAGE, message);
         mapParams.put(JSONConst.MOBILE_NUMBER, mobileNumber);
 

@@ -1,9 +1,9 @@
 package org.jacuzzi.core;
 
-import org.jacuzzi.common.stringutil.StringUtil;
 import org.jacuzzi.contract.NotificationRepository;
 import org.jacuzzi.model.NotificationData;
 import org.jacuzzi.service.MessageStatus;
+import org.jacuzzi.utils.Utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +41,7 @@ public class NotificationImpl implements Notification {
     }
 
     public List<NotificationData> getNotification(String mobileNumber) {
-        if(StringUtil.isEmpty())
+        if(Utils.isEmpty(mobileNumber))
             return Collections.EMPTY_LIST;
 
         List<NotificationData> lst;
@@ -56,7 +56,7 @@ public class NotificationImpl implements Notification {
     }
 
     public boolean setNotificationStatus(String messageId, MessageStatus messageStatus) {
-        if(StringUtil.isEmpty() || messageStatus == null)
+        if(Utils.isEmpty(messageId) || messageStatus == null)
             return false;
         try {
             List<NotificationData> lst = notificationRepository.findByMessageId(messageId);
