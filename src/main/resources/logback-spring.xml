@@ -1,0 +1,44 @@
+<configuration scan="true">
+
+    <property resource="application.properties"/>
+    <property scope="context" name="node.name" value="%property{jacuzzi.node.name}"/>
+    <property name="defaultPattern" value="%d ${HOSTNAME} [%thread]: %msg %n"/>
+
+    <!--
+    Notes on the pattern for logging:
+    %d - Date in the following format: 2016-03-18 09:21:24,492
+    %n - Adds a new line
+    %msg - The actual log message
+    %thread - Logs the thread name (ex: main) for the main thread
+    ${HOSTNAME} - Is a keyword that prints the host name ex: "MCKL-2016"
+
+    <property name="defaultPattern"
+                value="%d ${HOSTNAME} ${jacuzzi.component.id} ${node.name:-unknown_node} %X{mfs.flowId:-?} %thread %-5level %logger{25}.%M - %msg%n"/>
+               -->
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${defaultPattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${JACUZZI_LOG_PATH:-.}/notification.log</file>
+        <encoder>
+            <pattern>${defaultPattern}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${jacuzzi.component.id}-%d.%i.log.gz</fileNamePattern>
+            <maxHistory>10</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <root level="${log.level:-INFO}">
+        <appender-ref ref="FILE_LOG"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>

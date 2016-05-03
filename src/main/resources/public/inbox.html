@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Notification Simulator, a sleek tool for displaying notification messages">
+		<meta name="keywords" content="Money, Simulator, Notification, SMS">
+		<meta name="author" content="Girish S. Desai">
+
+		<title>  
+			Notification &middot; SMS Inbox
+		</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="icon" href="/favicon.ico">
+	</head>
+	
+	<body>
+		<div class="bd-pageheader">
+		  <div class="container">        
+			<h1>Notification SMS Inbox</h1>
+			<p class="lead">
+				A simple simulator to show received SMS Notifications
+			</p>
+		  </div>
+		</div>
+
+		
+
+		<div class="container">		
+			<div class="row">
+				<div class="col-md-3 col-md-push-9 bd-sidebar">
+				</div>
+				<div class="col-md-9 col-md-pull-3 bd-content">
+					<div class="col-md-12">
+					
+<!--						<form class="form-inline" role="form">
+							<div class="form-group">
+								<input class='form-control' placeholder='Enter mobile number ...' id='email'>
+							</div>
+							<button type="submit" class="btn btn-default">Submit</button>
+						</form>
+					-->
+						<!--<form class="bd-search hidden-sm-down">-->
+						<input type="text" class="form-control" id="search-input" 
+							placeholder="Enter mobile number ..." autocomplete="off">
+							<!-- <button id= 'search-mobile' type="submit" class="btn btn-default">Submit</button> -->
+						<!--</form> -->						
+					</div>
+					<div>
+						&nbsp;
+					</div>
+					<div class="bd-example">
+						<table class="table table-hover">
+						  <thead>
+							<tr>
+							  <th width="5%">#</th>
+							  <th width="20%">From</th>
+							  <th width="50%">Message</th>
+							  <th width="25%">Date</th>
+							</tr>
+						  </thead>
+						  <tbody id='message-table'>
+							<tr> <td colspan='4'><div align='center'><br/><i>No messages</i></div></td></tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="bd-footer text-muted" role="contentinfo">
+		  <div class="container">
+			<p>&nbsp</p>
+			<p align='center'>Built for the Notification Project </p>
+		  </div>
+		</footer>
+	</body>
+	      <script type = "text/javascript" src = "jquery-1.12.2.min.js"></script>
+      <script type='text/javascript' src='inbox.js'></script>
+
+</html>
