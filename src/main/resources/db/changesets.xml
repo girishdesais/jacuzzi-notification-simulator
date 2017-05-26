@@ -17,7 +17,7 @@
             <column name="MOBILE_NUMBER" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="MESSAGE" type="varchar(1000)">
+            <column name="MESSAGE" type="varchar(2000)">
                 <constraints nullable="false"/>
             </column>
             <column name="RECEIVED_ON" type="datetime">
